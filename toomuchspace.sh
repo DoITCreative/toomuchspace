@@ -42,6 +42,8 @@
 	path_to_icon=gfx/icon.png
 	path_to_selector=gfx/selector.png
 
+	cfg_selector_at=cfg/selector_at
+
 	#Icon options
 	icon_size=50
 
@@ -77,6 +79,37 @@
 #--------------------------------------------------
 
 #Functions:
+	
+	check_selector()
+	{
+	#Puts selector at position, that is written in cfg/selector_at
+	if [ -f $cfg_selector_at ]
+	then
+		if [ `cat $cfg_selector_at` = 1 ]
+		then
+			selector_margin_x="+35"
+		elif [ `cat $cfg_selector_at` = 2 ]
+		then
+			selector_margin_x="+95"
+		elif [ `cat $cfg_selector_at` = 3 ]
+		then
+			selector_margin_x="+155"
+		elif [ `cat $cfg_selector_at` = 4 ]
+		then
+			selector_margin_x="+215"
+		elif [ `cat $cfg_selector_at` = 5 ]
+		then
+			selector_margin_x="+275"
+		else
+			echo "Wrong selector config"
+		fi
+	else
+		echo "Config file does not exist"
+	
+	fi
+
+	}
+
 	edit_text()
 	{
 	#Creates text to show on image
@@ -129,9 +162,10 @@
 #--------------------------------------------------
 #Program:
 
-convert_images
+#convert_images
 while :
 do
+	check_selector
 	convert_images
 	edit_text
 	draw_stuff
