@@ -2,9 +2,7 @@
 
 # Toomuchspace
 
-Grabs your precious desktop space and places 
-
-customisable text widget there.
+Grabs your precious desktop space and places customisable text widget there.
 
 ### Remember to set variables before run!
 
