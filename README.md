@@ -11,3 +11,4 @@ Depends on:
 - feh
 - cowsay
 - fortune
+- font Hack-Regular.ttf
